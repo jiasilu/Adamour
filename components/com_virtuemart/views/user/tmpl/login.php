@@ -173,6 +173,7 @@ JHTML::_ ( 'behavior.modal' );
 
    <form action="<?php echo JRoute::_('index.php'); ?>" method="post" name="login" id="form-login">
         <?php echo JText::sprintf( 'COM_VIRTUEMART_HINAME', $user->name ); ?>
+<!--
 	<input type="submit" name="Submit" class="button" value="<?php echo JText::_( 'COM_VIRTUEMART_BUTTON_LOGOUT'); ?>" />
         <input type="hidden" name="option" value="<?php echo $comUserOption ?>" />
         <?php if ( JVM_VERSION===1 ) { ?>
@@ -183,7 +184,7 @@ JHTML::_ ( 'behavior.modal' );
         <?php echo JHtml::_('form.token'); ?>
 	<input type="hidden" name="return" value="<?php echo base64_encode($url) ?>" />
     </form>
-
+-->
 <?php }
 
 ?>

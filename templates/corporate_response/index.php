@@ -60,7 +60,7 @@ background:#<?php echo $s5_highlight; ?>;
 }
 
 <?php if ($s5_uppercase == "yes") { ?>
-#s5_loginreg, #s5_nav li a, .s5_mod_h3, .slideInfoZone h2, .s5_is_display h3, .button, button, #s5_va_accordion_inner h3, li.pagenav-next, li.pagenav-prev, #s5_component_wrap h2, #s5_component_wrap h1, .contentheading, .s5_va_element_inner h1, .s5_am_toggler, .uppercase, #s5_component_wrap h3 {
+#s5_nav li a, .s5_mod_h3, .slideInfoZone h2, .s5_is_display h3, .button, button, #s5_va_accordion_inner h3, li.pagenav-next, li.pagenav-prev, #s5_component_wrap h2, #s5_component_wrap h1, .contentheading, .s5_va_element_inner h1, .s5_am_toggler, .uppercase, #s5_component_wrap h3 {
 text-transform:uppercase;
 }
 <?php } ?>
@@ -201,7 +201,12 @@ div.itemHeader h2.itemTitle, div.catItemHeader h3.catItemTitle, h3.userItemTitle
 										<div id="s5_login" class="s5box_login">
 											<ul class="s5boxmenu">
 												<li>
-													<?php if ($s5_user_id) { echo $s5_loginout; } else { echo $s5_login; } ?>
+													<?php if ($s5_user_id) { 
+														$user = JFactory::getUser();
+														echo "Welcome, $user->username! ";
+														echo $s5_loginout; 
+													} else { 
+														echo $s5_login; } ?>
 												</li>
 											</ul>
 										</div>

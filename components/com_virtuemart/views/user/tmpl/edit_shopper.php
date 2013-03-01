@@ -17,19 +17,9 @@
  */
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die('Restricted access');
-
-?>
-<?php if(!$this->userDetails->user_is_vendor){ ?>
-<div class="buttonBar-right">
-	<button class="button" type="submit" onclick="javascript:return myValidator(userForm, 'saveUser');" ><?php echo $this->button_lbl ?></button>
-	&nbsp;
-	<button class="button" type="reset" onclick="window.location.href='<?php echo JRoute::_('index.php?option=com_virtuemart&view=user'); ?>'" ><?php echo JText::_('COM_VIRTUEMART_CANCEL'); ?></button>
-
-</div>
-<?php } ?>
+defined('_JEXEC') or die('Restricted access');?>
 <?php if( $this->userDetails->virtuemart_user_id!=0)  {
-    echo $this->loadTemplate('vmshopper');
+    //echo $this->loadTemplate('vmshopper');
     } ?>
 <?php echo $this->loadTemplate('address_userfields'); ?>
 
@@ -43,6 +33,14 @@ defined('_JEXEC') or die('Restricted access');
 	echo '<input type="hidden" name="virtuemart_userinfo_id" value="'.(int)$this->virtuemart_userinfo_id.'" />';
 }
 ?>
+<?php if(!$this->userDetails->user_is_vendor){ ?>
+<div class="buttonBar-right">
+	<button class="button" type="submit" onclick="javascript:return myValidator(userForm, 'saveUser');" ><?php echo $this->button_lbl ?></button>
+	&nbsp;
+	<button class="button" type="reset" onclick="window.location.href='<?php echo JRoute::_('index.php?option=com_virtuemart&view=user'); ?>'" ><?php echo JText::_('COM_VIRTUEMART_CANCEL'); ?></button>
+
+</div>
+<?php } ?>
 <input type="hidden" name="task" value="<?php echo $this->fTask; // I remember, we removed that, but why?   ?>" />
 <input type="hidden" name="address_type" value="BT" />
 
