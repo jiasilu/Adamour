@@ -199,7 +199,7 @@ if (!empty($this->products)) {
 -->
 <!-- end of orderby-displaynumber -->
 
-<h1><?php echo $this->category->category_name; ?></h1>
+<!-- <h1><?php echo $this->category->category_name; ?></h1> -->
 
 	<?php
 	// Category and Columns Counter
@@ -245,24 +245,22 @@ if (!empty($this->products)) {
 
 		// Show Products
 		?>
-		<div class="product floatleft<?php echo $Browsecellwidth . $show_vertical_separator ?>">
-			<div class="spacer">
-				<div class="width30 floatleft center">
+		<div class   = "product floatleft<?php echo $Browsecellwidth . $show_vertical_separator ?>">
+			<div class  = "spacer">
+				<div class = "width30 floatleft center">
+					<!-- Product Title -->
+					<h2 class="product-layout-title"><?php echo JHTML::link ($product->link, $product->product_name); ?></h2>
+					<!-- Product Image -->
 					<?php /** @todo make image popup */
-					echo $product->images[0]->displayMediaThumb ('class="browseProductImage" border="0" title="' . $product->product_name . '" ', TRUE, 'class="modal"');
+					echo $product->images[0]->displayMediaFull('class="product-layout-image" title="' . $product->product_name . '" ', TRUE, 'class="modal"');
+			    	
 					?>
-
-					<!-- The "Average Customer Rating" Part -->
-					<?php if ($this->showRating) { ?>
-					<span class="contentpagetitle"><?php echo JText::_ ('COM_VIRTUEMART_CUSTOMER_RATING') ?>:</span>
-					<br/>
-					<?php
-					// $img_url = JURI::root().VmConfig::get('assets_general_path').'/reviews/'.$product->votes->rating.'.gif';
-					// echo JHTML::image($img_url, $product->votes->rating.' '.JText::_('COM_VIRTUEMART_REVIEW_STARS'));
-					// echo JText::_('COM_VIRTUEMART_TOTAL_VOTES').": ". $product->votes->allvotes;
-					?>
-					<?php } ?>
-
+					<!-- Product Details Button -->
+					<p>
+						<?php 
+						echo JHTML::link ($product->link, JText::_ ('COM_VIRTUEMART_PRODUCT_DETAILS'), array('title' => $product->product_name, 'class' => 'product-details'));
+						?>
+					</p>
 					<?php
 					if (!VmConfig::get ('use_as_catalog') and !(VmConfig::get ('stockhandle', 'none') == 'none') && (VmConfig::get ('display_stock', 1))) {
 						?>
@@ -275,9 +273,6 @@ if (!empty($this->products)) {
 				</div>
 
 				<div class="width70 floatright">
-
-					<h2><?php echo JHTML::link ($product->link, $product->product_name); ?></h2>
-
 					<?php // Product Short Description
 					if (!empty($product->product_s_desc)) {
 						?>
@@ -313,12 +308,17 @@ if (!empty($this->products)) {
 						} ?>
 
 					</div>
+					<!-- The "Average Customer Rating" Part -->
+					<?php if ($this->showRating) { ?>
+					<span class="contentpagetitle"><?php echo JText::_ ('COM_VIRTUEMART_CUSTOMER_RATING') ?>:</span>
+					<br/>
+					<?php
+					// $img_url = JURI::root().VmConfig::get('assets_general_path').'/reviews/'.$product->votes->rating.'.gif';
+					// echo JHTML::image($img_url, $product->votes->rating.' '.JText::_('COM_VIRTUEMART_REVIEW_STARS'));
+					// echo JText::_('COM_VIRTUEMART_TOTAL_VOTES').": ". $product->votes->allvotes;
+					?>
+					<?php } ?>
 
-					<p>
-						<?php // Product Details Button
-						echo JHTML::link ($product->link, JText::_ ('COM_VIRTUEMART_PRODUCT_DETAILS'), array('title' => $product->product_name, 'class' => 'product-details'));
-						?>
-					</p>
 
 				</div>
 				<div class="clear"></div>

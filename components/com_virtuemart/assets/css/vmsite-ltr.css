@@ -256,14 +256,19 @@ div.spaceStyle{padding: 0px; margin: 5px; spacing: 0px;}
   width: auto;
 }
 
+.product-layout-title {
+	font-size: 25px;
+	padding: 10px;
+}
+
 .category-view {
 	background: url("../images/slideshow2.jpeg");
 	background-size: 100%;
 }
 
-.category_description {
+/*.category_description {
 	margin-left: 40px;
-}
+}*/
 .category-view-top {
 	display: inline-block;
 	text-align: center;
