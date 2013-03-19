@@ -554,8 +554,20 @@ font-size:1.05em;
 height:23px;
 }
 
+#s5_loginreg {
+	display:inline-block;
+}
+
 #s5_logregtm {
 margin-right:14px;
+display:inline-block;
+}
+
+#welcome {
+display:inline;
+float:left;
+margin-right:10px;
+padding-top:1px;
 }
 
 #s5_register {

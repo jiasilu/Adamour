@@ -183,36 +183,34 @@ div.itemHeader h2.itemTitle, div.catItemHeader h3.catItemTitle, h3.userItemTitle
 					<?php if (($s5_login  != "") || ($s5_register  != "")) { ?>	
 						<div id="s5_loginreg">	
 							<div id="s5_logregtm">
-								
-									<?php if ($s5_register  != "") { ?>
-
-										<?php if ($s5_user_id) { } else {?>
-											<div id="s5_register" class="s5box_register">
-												<ul class="s5boxmenu">
-													<li><?php echo $s5_register;?></li>
-												</ul>
-											</div>
-										<?php } ?>
-										
-									<?php } ?>
-									
-									<?php if ($s5_login  != "") { ?>
-								
-										<div id="s5_login" class="s5box_login">
+								<?php if ($s5_register  != "") { ?>
+									<?php if ($s5_user_id) { } else {?>
+										<div id="s5_register" class="s5box_register">
 											<ul class="s5boxmenu">
-												<li>
-													<?php if ($s5_user_id) { 
-														$user = JFactory::getUser();
-														echo "Welcome, $user->username! ";
-														echo $s5_loginout; 
-													} else { 
-														echo $s5_login; } ?>
-												</li>
+												<li><?php echo $s5_register;?></li>
 											</ul>
 										</div>
-									
-									<?php } ?>
-									
+									<?php }} ?>
+									<?php if ($s5_login  != "") { ?>
+											<?php if ($s5_user_id) { 
+												$user = JFactory::getUser();
+											?>
+											<div id="welcome">Welcome, 
+												<a href="/Shape5_Corporate/index.php/profile">
+											  		<?php	echo $user->username;?>
+												</a>
+											</div>
+									<?php }}?>
+									<div id="s5_login" class="s5box_login">
+										<ul class="s5boxmenu">
+											<li>
+												<?php if ($s5_user_id) {
+													echo $s5_loginout; 
+												} else { 
+													echo $s5_login; } ?>
+											</li>
+										</ul>
+									</div>	
 							</div>
 						</div>
 					<?php } ?>
